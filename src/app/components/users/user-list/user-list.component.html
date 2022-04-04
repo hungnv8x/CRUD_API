@@ -1,0 +1,30 @@
+<div class="card">
+  <h5 class="card-header">Featured</h5>
+  <div class="card-body">
+    <p *ngIf="message" class="alert alert-success">
+      {{ message }}
+    </p>
+    <table class="table">
+
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <th scope="row">{{ i + 1}}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="delete(user.id)">Delete</button>
+          <button class="btn btn-primary" routerLink="../users/{{user.id}}/edit">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
